@@ -19,7 +19,19 @@
 </head>
 <body>
 
-    <div class="btn-group" data-toggle="buttons">
+    <div id="conference-group" class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="conf-options" value="all" id="all" autocomplete="off" checked> All
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="conf-options" value="west" id="west" autocomplete="off"> West
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="conf-options" value="east" id="east" autocomplete="off"> East
+        </label>
+    </div>
+
+    <div id="metric-group" class="btn-group" data-toggle="buttons">
         <label class="btn btn-primary active">
             <input type="radio" name="options" value="FG%" id="option1" autocomplete="off" checked> FG%
         </label>

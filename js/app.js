@@ -41,16 +41,35 @@ $(function() {
                 .attr('fill', 'blue')
                 .attr('cx', function(d) { return xScale(d[xmetric])})
                 .attr('cy', function(d) { return yScale(d[ymetric])})
-                .attr('title', function(d) {return d['TEAM']})
-                .style('opacity', .3)
+                .attr('title', function(d) { return d['TEAM'] })
+                .attr("visibility", "visible")
+                .style('opacity', 0.3)
+                .call(curr_show_func);
         };
+
+        var showAll = function(c) {
+            c.transition().duration(750).style('opacity', 0.3);
+        };
+
+        var hideEast = function(c) {
+            c.filter(function(d) { return d['CONF'] === '0'; })
+                .style('opacity', 0);
+        };
+
+        var hideWest = function(c) {
+            c.filter(function(d) { return d['CONF'] === '1'; })
+                .style('opacity', 0);
+        };
+
+        var curr_show_func = showAll;
 
         var draw = function(data) {
             setScales();
             var circles = g.selectAll('circle').data(data);
             circles.enter().append('circle').call(circleFunc);
+            g.selectAll('circle')
+                .transition().duration(750).call(circleFunc);
             circles.exit().remove();
-            g.selectAll('circle').transition().duration(1500).call(circleFunc)
         };
 
         draw(data);
@@ -93,8 +112,24 @@ $(function() {
             'placement': 'bottom'
         });
 
-        // get selection
-        $("input[type=radio]").on('change', function() {
+        $("#conference-group input[type=radio]").on('change', function() {
+            switch (this.value) {
+                case 'west':
+                    curr_show_func = hideEast;
+                    break;
+                case 'east':
+                    curr_show_func = hideWest;
+                    break;
+                default:
+                    curr_show_func = showAll;
+                    break;
+            }
+
+            draw(data);
+            drawAxes();
+        });
+
+        $("#metric-group input[type=radio]").on('change', function() {
             ymetric = this.value;
             draw(data);
             drawAxes();
