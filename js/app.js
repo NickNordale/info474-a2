@@ -9,7 +9,7 @@ $(function() {
 
         var svg = d3.select('#vis')
             .append('svg')
-            .attr('height', 750)
+            .attr('height', 650)
             .attr('width', 750);
 
         var margin = {
@@ -19,7 +19,7 @@ $(function() {
             right:25
         };
 
-        var height = 750 - margin.bottom - margin.top;
+        var height = 650 - margin.bottom - margin.top;
         var width = 750 - margin.left - margin.right;
 
         var g = svg.append('g')
@@ -28,10 +28,10 @@ $(function() {
             .attr('width', width);
 
         var setScales = function() {
-            var xMax = d3.max(data, function(d) { return d[xmetric] }) * 1.05;
-            var xMin = d3.min(data, function(d) { return d[xmetric] }) * 0.95;
-            var yMax = d3.max(data, function(d) { return d[ymetric] }) * 1.05;
-            var yMin = d3.min(data, function(d) { return d[ymetric] }) * 0.95;
+            var xMax = d3.max(data, function(d) { return parseFloat(d[xmetric]) }) * 1.05;
+            var xMin = d3.min(data, function(d) { return parseFloat(d[xmetric]) }) * 0.95;
+            var yMax = d3.max(data, function(d) { return parseFloat(d[ymetric]) }) * 1.05;
+            var yMin = d3.min(data, function(d) { return parseFloat(d[ymetric]) }) * 0.95;
             xScale = d3.scaleLinear().range([0, width]).domain([xMin, xMax]);
             yScale = d3.scaleLinear().range([height, 0]).domain([yMin, yMax]);
         };
@@ -43,12 +43,12 @@ $(function() {
                 .attr('cy', function(d) { return yScale(d[ymetric])})
                 .attr('title', function(d) { return d['TEAM'] })
                 .attr("visibility", "visible")
-                .style('opacity', 0.3)
+                .style('opacity', 0.6)
                 .call(curr_show_func);
         };
 
         var showAll = function(c) {
-            c.transition().duration(750).style('opacity', 0.3);
+            c.transition().duration(750).style('opacity', 0.6);
         };
 
         var hideEast = function(c) {

@@ -1,0 +1,16 @@
+body {
+    padding: 15px;
+}
+
+.btn-group {
+    margin-right: 10px;
+}
+
+#conference-group label {
+    //color: #000;
+    font-weight: 800;
+}
+
+#metric-group label {
+    font-weight: 400;
+}
