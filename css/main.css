@@ -7,10 +7,14 @@ body {
 }
 
 #conference-group label {
-    //color: #000;
     font-weight: 800;
 }
 
 #metric-group label {
     font-weight: 400;
+}
+
+#info-link {
+    display: inline-block;
+    margin-left: 100px;
 }
