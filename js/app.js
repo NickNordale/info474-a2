@@ -68,8 +68,8 @@ $(function() {
             .attr('width', width);
 
         var setScales = function() {
-            var xMax = d3.max(data, function(d) { return parseFloat(d[xmetric]) }) * 1.05;
-            var xMin = d3.min(data, function(d) { return parseFloat(d[xmetric]) }) * 0.95;
+            var xMax = d3.max(data, function(d) { return parseFloat(d[xmetric]) }) * 105;
+            var xMin = d3.min(data, function(d) { return parseFloat(d[xmetric]) }) * 95;
             var yMax = d3.max(data, function(d) { return parseFloat(d[ymetric]) }) * 1.05;
             var yMin = d3.min(data, function(d) { return parseFloat(d[ymetric]) }) * 0.95;
             xScale = d3.scaleLinear().range([0, width]).domain([xMin, xMax]);
@@ -79,8 +79,8 @@ $(function() {
         var circleFunc = function(circle) {
             circle.attr('r', 5)
                 .attr('fill', 'blue')
-                .attr('cx', function(d) { return xScale(d[xmetric])})
-                .attr('cy', function(d) { return yScale(d[ymetric])})
+                .attr('cx', function(d) { return xScale(parseFloat(d[xmetric]) * 100)})
+                .attr('cy', function(d) { return yScale(parseFloat(d[ymetric]))})
                 .attr('title', function(d) { return d['TEAM'] })
                 .attr("fill", function(d) { return d.color})
                 .style('opacity', 0.7)

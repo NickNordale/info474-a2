@@ -20,21 +20,70 @@
                 effectively (~ 1 paragraph).</b>
 
             <br>
-            <span>Words</span>
+            <span>
+                This tool serves two primary functions: it provides means to analyze the differences in statistical
+                measures between teams and groups of teams, and also this tool can be used to analyze the
+                statistical characteristics of good teams and bad teams. I chose a scatterplot for the visualization
+                because scatterplots are a great tool to use in making comparisons and assessing relationships
+                between variables. Humans are most capable of judging position against a common scale, which is
+                exactly what a scatterplot provides. Also, scatterplots can facilitate interactive functionality in a
+                way that is not visually overwhelming or confusing because it is a 2D plane and the axes positions
+                remain constant.
+            </span>
         </p>
         <p>
             <b>Then, for each controlling element, detail how it enables your user to ask different
                 questions (~1 paragraph).</b>
 
             <br>
-            <span>Words</span>
+            <span>
+                I included two groups of controlling elements in this tool. One to toggle the conference of the NBA
+                teams, and one to control which statistical metrics were displayed along the y-axis. The conference
+                control, allows the user to analyze differences across either the whole population of teams, or
+                differences across conferences. I added this because, for several years now, the Western Conference
+                has widely been believed to be the superior conference. This control could lead to insights on
+                why this discrepancy exists. The statistical metric control, allows the user to explore the relationships
+                between various stats and winning percentage. More explicitly, the user could try and determine
+                which stats are more likely to indicate a good team, and which stats might correlate strongly with
+                losing teams/low win percentage.
+            </span>
         </p>
         <p>
             <b>You should include specific examples of insights you discovered through the use of these tools.</b>
 
             <br>
-            <span>Words</span>
+            <span>
+                I discovered something interesting in the shooting percentage metrics (FG%, 3P%, FT%). It is intuitive
+                that the teams who shoot better, would likely win more games. Such appears to be the case for FG% and
+                3P%, however, there seems to be virtually no correlation between FT% and WIN%. This is interesting both
+                because you would expect better free throw shooting teams to win more because they earn more points when
+                fouled, but this is also curious because it means that the winningest teams who are shooting high percentages
+                from the field and from behind the three point line, are, relatively, shooting poorly at the line.
+                <br>
+                Also, in comparing the conferences, I noticed that the Eastern Conference points were bunched more closely
+                together than the Western Conferences points for most of the metrics. This led to my hypothesis that,
+                maybe the Eastern Conference contains teams which are somewhat similar to each other in style and makeup,
+                whereas the Western Conference has a more diverse group of teams. This would take further analysis, but
+                I could imagine that Eastern Conference teams could potentially have a harder time against each other
+                because of how similar each team is to each other. This similarity and familiarity of style could
+                decrease the variance of those matchups - ultimately normalizing the winning percentages of the top
+                teams in that conference.
+            </span>
         </p>
+    </div>
+
+    <div class="container">
+        <h5>Key:</h5>
+        <ul>
+            <li><b>WIN%</b>: Percentage of games won</li>
+            <li><b>FG%</b>: Field goal percentage</li>
+            <li><b>3P%</b>: Three point percentage</li>
+            <li><b>FT%</b>: Free throw percentage</li>
+            <li><b>PTS</b>: Points per game</li>
+            <li><b>AST</b>: Assists per game</li>
+            <li><b>REB</b>: Rebounds per game</li>
+            <li><b>TOV</b>: Turnovers per game</li>
+        </ul>
     </div>
 
 </body>
